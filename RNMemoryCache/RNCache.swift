@@ -15,17 +15,17 @@ import Foundation
     - 複数箇所で同一キーのキャッシュ宣言は避けてください.
     - 宣言元で期限時間が変えられるため、想定外の難解な不具合を生む原因となります。
  */
-struct RNCache<T> {
+public struct RNCache<T> {
     private let key: String
     private let expireTime: TimeInterval?
 
-    init(key: String, expireTime: TimeInterval? = nil) {
+    public init(key: String, expireTime: TimeInterval? = nil) {
         self.key = key
         self.expireTime = expireTime
         RNMemoryCache.shared.set(key: key, expireTime: expireTime)
     }
 
-    var value: T? {
+    public var value: T? {
         get {
             return RNMemoryCache.shared.get(key: key)
         }
@@ -34,7 +34,7 @@ struct RNCache<T> {
         }
     }
 
-    func invalidate() {
+    public func invalidate() {
         RNMemoryCache.shared.invalidate(key: key)
     }
 }
