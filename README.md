@@ -32,3 +32,15 @@ class UserRepository {
     }
 }
 ```
+
+## Install
+
+Use Carthage.
+
+```
+github "mothule/RNMemoryCache"
+```
+
+## Require
+
+- Swift 5.0 or later
